@@ -18,16 +18,16 @@ type server struct {
 }
 
 type Log struct {
-	Contents string `json:"contents,omitempty"`
-	Sources  string `json:"sources,omitempty"`
-	Session  int64  `json:"session,omitempty"`
+	Contents []string `json:"contents,omitempty"`
+	Sources  []string `json:"sources,omitempty"`
+	Session  int64    `json:"session,omitempty"`
 }
 
 func (in *Log) Validate() error {
 	if in == nil {
 		return fmt.Errorf("log is nil")
 	}
-	if in.Contents == "" || in.Sources == "" || in.Session == 0 {
+	if len(in.Contents) == 0 || len(in.Sources) == 0 || in.Session == 0 {
 		return fmt.Errorf("log is empty")
 	}
 	return nil
