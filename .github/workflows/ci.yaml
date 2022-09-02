@@ -89,8 +89,8 @@ jobs:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
-           '${{ needs.prepare.outputs.image_name }}-api':${{ needs.prepare.outputs.image_tag }}
-           '${{ needs.prepare.outputs.image_name }}-api':${{ needs.prepare.outputs.branch_tag }}
+           ${{ needs.prepare.outputs.image_name }}-api:${{ needs.prepare.outputs.image_tag }}
+           ${{ needs.prepare.outputs.image_name }}-api:${{ needs.prepare.outputs.branch_tag }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
 
