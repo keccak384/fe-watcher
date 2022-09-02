@@ -1,4 +1,4 @@
-FROM golang:1.18.9 as builder
+FROM golang:1.18.3 as builder
 
 WORKDIR /src
 
@@ -18,4 +18,3 @@ RUN apk --no-cache add ca-certificates git
 COPY --from=builder /src/fe-watcher /usr/local/bin/fe-watcher
 
 ENTRYPOINT [ "/usr/local/bin/fe-watcher" ]
-
